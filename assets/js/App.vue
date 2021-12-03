@@ -1,6 +1,7 @@
 <template>
   <div>
-    <nav>sad</nav>
+    <nav class="navbar">
+    </nav>
   </div>
 </template>
 
@@ -11,10 +12,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 body{
     background-color: black !important;
     margin:0;
     padding:0;
+    color:white;
 }
 </style>
