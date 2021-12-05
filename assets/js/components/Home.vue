@@ -1,12 +1,15 @@
 <template>
     <div class="content-container">
-        <div class="build-wrapper">
-            <select>
+        <div class="build-wrapper p15">
+            <div class="label">
+            <label for="cpu">Processor</label>
+            <select id="cpu">
                 <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
             </select>
+            </div>
         </div>
-        <div class="info-wrapper">
-            {{ woltage }}
+        <div class="info-wrapper p15">
+            Voltage: {{ woltage }}
         </div>
             
     </div>
@@ -42,15 +45,24 @@ export default{
     display:flex;
     gap:5%;
 
+    .p15{
+        padding:15px;
+    }
     .build-wrapper{
         width:60%;
         height:600px;
-        background-color:red;
-        padding:15px;
     }
     .info-wrapper{
         width:35%;
-        background:yellow;
+    }
+    .label{
+        border: 2px solid silver;
+    }
+    select{
+        width:150px;
+        height:25px;
+        border-radius:5px;
+        
     }
 }
 </style>
