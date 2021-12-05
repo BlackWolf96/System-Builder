@@ -12,16 +12,19 @@
     <div class="container">
       <Home />
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: 'App',
   components: {
     Home,
+    Footer,
   },
   data() {
     return {
