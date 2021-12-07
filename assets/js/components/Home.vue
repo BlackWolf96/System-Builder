@@ -5,25 +5,25 @@
                 <div class="item">
                     <h3>Producer</h3>
                     <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
+                        <option v-for="item in info" :key="item.id">{{ item.producer }}</option>
                     </select>
                 </div>
                 <div class="item">
                     <h3>Socket</h3>
                     <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
+                        <option v-for="item in info" :key="item.id">{{ item.socket }}</option>
                     </select>
                 </div>
                 <div class="item">
                     <h3>Model</h3>
                     <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
+                        <option v-for="item in info" :key="item.id">{{ item.model }}</option>
                     </select>
                 </div>
                 <div class="item">
                     <h3>OC</h3>
                     <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
+                        <option v-for="item in info " :key="item.id">{{ item.overclocking }}</option>
                     </select>
                 </div>
             <legend>Processor</legend>
@@ -59,7 +59,7 @@
                 <div class="item">
                     <h3>RAM</h3>
                     <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
+                        <option v-for="item in info" :key="item.id">{{ item.producent }}</option>
                     </select>
                 </div>
                 <div class="item">
@@ -84,7 +84,11 @@
             </fieldset>
         </div>
         <div class="info-wrapper p15">
-            Voltage: {{ woltage }}
+            <h4>CPU:</h4>
+            <h4>GPU:</h4>
+            <h4>Ram:</h4> 
+            <h4>SSD:</h4> 
+            <span><h4>Power:</h4> {{ woltage }}</span>
 
         </div>
             
@@ -92,6 +96,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default{
     name: 'Home',
     data() {
@@ -110,9 +116,15 @@ export default{
                     producent: 'AMD',
                 }
             ],
-            woltage: 0,
+            woltage: 20,
+            info: null
         }
-    }
+    },
+    mounted(){
+        axios
+            .get(`http://127.0.0.1:8000/app/json`)
+            .then(response => (this.info = response.data));
+    },
 }
 </script>
 
@@ -145,3 +157,4 @@ export default{
     }
 }
 </style>
+
