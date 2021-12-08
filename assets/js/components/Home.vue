@@ -10,7 +10,7 @@
                 </div>
                 <div class="item">
                     <h3>Socket</h3>
-                    <select id="cpu">
+                    <select id="cpu" v-if="selectedProducer == 'Intel'">
                         <option v-for="item in info" :key="item.id">{{ item.socket }}</option>
                     </select>
                 </div>
@@ -27,60 +27,6 @@
                     </select>
                 </div>
             <legend>Processor</legend>
-            </fieldset>
-            <fieldset>
-                <div class="item">
-                    <h3>Amount</h3>
-                    <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <h3>Producer</h3>
-                    <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <h3>Model</h3>
-                    <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <h3>OC</h3>
-                    <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-            <legend>Graphic Card</legend>
-            </fieldset>
-            <fieldset>
-                <div class="item">
-                    <h3>RAM</h3>
-                    <select id="cpu">
-                        <option v-for="item in info" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <h3>SATA</h3>
-                    <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <h3>M2</h3>
-                    <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-                <div class="item">
-                    <h3>PATA</h3>
-                    <select id="cpu">
-                        <option v-for="item in processor" :key="item.id">{{ item.producent }}</option>
-                    </select>
-                </div>
-            <legend>System</legend>
             </fieldset>
         </div>
         <div class="info-wrapper p15">
@@ -102,22 +48,8 @@ export default{
     name: 'Home',
     data() {
         return {
-            processor: [
-                { 
-                    id: 0,
-                    producent: 'Wybierz',
-                },
-                {
-                    id: 1,
-                    producent: 'Intel',
-                },
-                {
-                    id: 2,
-                    producent: 'AMD',
-                }
-            ],
-            woltage: 20,
-            info: null
+            info: null,
+            selectedProducer: 'Intel',
         }
     },
     mounted(){
