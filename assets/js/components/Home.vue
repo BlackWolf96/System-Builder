@@ -3,14 +3,14 @@
         <div class="build-wrapper p15">
             <fieldset>
                 <div class="item">
-                    <h3>Producer</h3>
-                    <select id="cpu">
+                    <h3>Producer</h3> {{ selectedProducer }}
+                    <select v-model="selectedProducer">
                         <option v-for="item in info" :key="item.id">{{ item.producer }}</option>
                     </select>
                 </div>
                 <div class="item">
                     <h3>Socket</h3>
-                    <select id="cpu" v-if="selectedProducer == 'Intel'">
+                    <select v-model="selectedSocket">
                         <option v-for="item in info" :key="item.id">{{ item.socket }}</option>
                     </select>
                 </div>
@@ -49,7 +49,8 @@ export default{
     data() {
         return {
             info: null,
-            selectedProducer: 'Intel',
+            selectedProducer: '',
+            selectedSocket: '',
         }
     },
     mounted(){
